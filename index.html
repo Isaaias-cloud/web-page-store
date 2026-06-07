@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoreHub | Comercio electronico</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar">
+    <a class="brand" href="index.html">StoreHub</a>
+    <div class="nav-search"><input id="homeSearch" placeholder="Buscar en StoreHub" onkeydown="if(event.key==='Enter') location.href='products.html?q='+encodeURIComponent(this.value)"></div>
+    <button class="nav-toggle" data-theme-toggle title="Cambiar tema">◐</button>
+    <a href="products.html">Productos</a>
+    <a href="cart.html" data-role="client">Carrito <span class="pill" data-cart-count>0</span></a>
+    <a href="dashboard.html" data-auth="in">Dashboard</a>
+    <a href="profile.html" data-auth="in">Perfil</a>
+    <a href="login.html" data-auth="out">Ingresar</a>
+    <button class="link-btn" data-auth="in" data-logout>Salir</button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Marketplace moderno sin backend</p>
+        <h1>StoreHub</h1>
+        <p>Compra, vende, administra inventario y simula pedidos completos en una experiencia 100% del lado del cliente.</p>
+        <div class="action-row"><a class="btn btn-primary" href="products.html">Explorar productos</a><a class="btn btn-outline" href="register.html">Crear cuenta</a></div>
+      </div>
+      <div class="hero-board">
+        <div class="deal-card"><span>Oferta destacada</span><strong>Hasta 15% OFF</strong><small>Cupon STORE15</small></div>
+        <div id="salesRanking" class="rank-list"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Categorias dinamicas</h2><a href="products.html">Ver todo</a></div>
+      <div id="homeCategories" class="category-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Productos destacados</h2><span>Recomendados por ventas y calificacion</span></div>
+      <div id="featuredProducts" class="product-grid"></div>
+    </section>
+
+    <section class="help-band">
+      <div><p class="eyebrow">Centro de ayuda</p><h2>Soporte de compras, devoluciones e inventario</h2></div>
+      <form id="helpForm"><input class="form-control" placeholder="Escribe tu duda" required><button class="btn btn-primary">Enviar</button></form>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

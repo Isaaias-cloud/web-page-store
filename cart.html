@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Carrito | StoreHub</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar"><a class="brand" href="index.html">StoreHub</a><a href="products.html">Productos</a><button class="nav-toggle" data-theme-toggle>◐</button><a href="dashboard.html" data-auth="in">Dashboard</a><button class="link-btn" data-logout>Salir</button></nav>
+  <main>
+    <section class="section-head"><div><p class="eyebrow">Checkout</p><h1>Carrito de compras</h1></div><button id="emptyCart" class="btn btn-outline">Vaciar carrito</button></section>
+    <section class="cart-layout"><div id="cartItems" class="cart-list"></div><aside class="summary"><h2>Resumen</h2><label>Cupon<input id="couponInput" class="form-control" placeholder="BIENVENIDO10"></label><small id="couponStatus"></small><div><span>Subtotal</span><strong id="cartSubtotal"></strong></div><div><span>Descuento</span><strong id="cartDiscount"></strong></div><div><span>IVA 16%</span><strong id="cartTax"></strong></div><div class="total"><span>Total</span><strong id="cartTotal"></strong></div><button id="checkoutBtn" class="btn btn-primary">Confirmar pedido</button></aside></section>
+  </main>
+  <script src="js/storage.js"></script><script src="js/cart.js"></script>
+</body>
+</html>

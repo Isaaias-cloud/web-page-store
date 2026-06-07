@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Productos | StoreHub</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar"><a class="brand" href="index.html">StoreHub</a><div class="nav-search"><input id="searchInput" placeholder="Busqueda instantanea"></div><button class="nav-toggle" data-theme-toggle>◐</button><a href="cart.html" data-role="client">Carrito <span class="pill" data-cart-count>0</span></a><a href="dashboard.html" data-auth="in">Dashboard</a><a href="login.html" data-auth="out">Ingresar</a><button class="link-btn" data-auth="in" data-logout>Salir</button></nav>
+  <main>
+    <section class="catalog-head">
+      <div><p class="eyebrow">Catalogo</p><h1>Productos para comparar, guardar y comprar</h1></div>
+      <div class="filters"><select id="categoryFilter" class="form-select"></select><select id="sortFilter" class="form-select"><option value="featured">Destacados</option><option value="priceAsc">Menor precio</option><option value="priceDesc">Mayor precio</option><option value="rating">Mejor calificacion</option><option value="newest">Recientes</option></select></div>
+    </section>
+    <div class="section-head"><span id="resultCount"></span></div>
+    <section id="productGrid" class="product-grid"></section>
+    <nav id="pagination" class="pagination"></nav>
+  </main>
+  <script src="js/storage.js"></script><script src="js/cart.js"></script><script src="js/products.js"></script>
+</body>
+</html>

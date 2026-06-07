@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Perfil | StoreHub</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar"><a class="brand" href="index.html">StoreHub</a><a href="products.html">Productos</a><button class="nav-toggle" data-theme-toggle>◐</button><a href="dashboard.html">Dashboard</a><button class="link-btn" data-logout>Salir</button></nav>
+  <main class="auth-page">
+    <section class="auth-card wide">
+      <p class="eyebrow">Perfil <span data-profile-role></span></p><h1 data-user-name>Mi cuenta</h1>
+      <form id="profileForm" class="form-grid">
+        <label>Nombre<input class="form-control" name="name" required></label>
+        <label>Correo<input class="form-control" name="email" disabled></label>
+        <label>Telefono<input class="form-control" name="phone"></label>
+        <label>Nueva contrasena<input class="form-control" type="password" name="password" minlength="6"></label>
+        <label class="span-2">Direccion<input class="form-control" name="address"></label>
+        <button class="btn btn-primary span-2">Guardar cambios</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/storage.js"></script><script src="js/auth.js"></script>
+</body>
+</html>
