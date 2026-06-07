@@ -200,7 +200,7 @@ const Store = (() => {
         }
       });
       window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 960) {
           navMenu.classList.remove("open");
           document.body.classList.remove("menu-open");
         }
