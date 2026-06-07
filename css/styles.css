@@ -92,7 +92,7 @@ body.ready .loader { opacity: 0; visibility: hidden; }
   border-radius: var(--radius);
   padding: 11px 12px;
   outline: 0;
-  font-size: 16px; /* Avoid iOS auto-zoom on focus */
+  font-size: 1rem; /* Scale with root font size, avoiding iOS auto-zoom */
 }
 .nav-search input:focus, .form-control:focus, .form-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, .12); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
@@ -370,6 +370,7 @@ th { color: var(--muted); font-size: .84rem; text-transform: uppercase; }
 }
 
 @media (max-width: 768px) {
+  html { font-size: 105%; } /* Scale root slightly on small screens */
   .navbar { flex-wrap: wrap; }
   .nav-search { order: 2; flex-basis: 100%; margin-top: 8px; }
   .menu-toggle { display: inline-grid; }
@@ -413,6 +414,7 @@ th { color: var(--muted); font-size: .84rem; text-transform: uppercase; }
 }
 
 @media (max-width: 620px) {
+  html { font-size: 110%; } /* Increase base font-size to 17.6px (110% of 16px) for mobile layout */
   main { width: min(100% - 20px, 1180px); padding-top: 18px; }
   .navbar { gap: 10px; font-size: .94rem; }
   .catalog-head, .section-head { align-items: flex-start; flex-direction: column; }
