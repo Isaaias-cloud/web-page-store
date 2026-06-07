@@ -1,10 +1,15 @@
 /* Role-aware dashboards and seller inventory management. */
+let currentChartRef = null;
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.querySelector("#dashboardRoot");
   if (!root) return;
   const user = Store.requireRole(["client", "seller"]);
   if (!user) return;
   user.role === "seller" ? renderSeller(user) : renderClient(user);
+
+  window.addEventListener("resize", () => {
+    if (currentChartRef) currentChartRef();
+  });
 });
 
 function sellerStats(user) {
@@ -33,7 +38,8 @@ function renderSeller(user) {
     <section class="panel"><div class="section-head"><h2>Ultimos pedidos recibidos</h2></div><div class="list">${soldItems.slice(0, 8).map((it) => `<div class="list-row"><span>${it.name}<small>${it.buyer} · ${new Date(it.createdAt).toLocaleDateString("es-MX")}</small></span><strong>${Store.money(it.price * it.quantity)}</strong></div>`).join("") || "<p class='muted'>Aun no hay pedidos.</p>"}</div></section>
     ${productModal()}`;
   fillSellerProducts(user);
-  drawBars("salesChart", products.slice(0, 8).map((p) => ({ label: p.name.split(" ")[0], value: p.sales })));
+  currentChartRef = () => drawBars("salesChart", products.slice(0, 8).map((p) => ({ label: p.name.split(" ")[0], value: p.sales })));
+  currentChartRef();
   bindSeller(user);
 }
 
@@ -132,7 +138,8 @@ function renderClient(user) {
       <section class="panel"><div class="section-head"><h2>Productos favoritos</h2></div><div class="wishlist-grid">${wishlist.map((id) => products.find((p) => p.id === id)).filter(Boolean).slice(0, 4).map(ProductUI.card).join("") || "<p class='muted'>Aun no tienes favoritos.</p>"}</div></section>
     </div>
     <section class="panel"><div class="section-head"><h2>Historial de pedidos</h2></div><div class="list">${orders.map((o) => `<div class="order-block"><div class="list-row"><span><strong>${o.id}</strong><small>${new Date(o.createdAt).toLocaleString("es-MX")}</small></span><strong>${Store.money(o.total)}</strong></div><p>${o.items.map((i) => `${i.quantity}x ${i.name}`).join(", ")}</p></div>`).join("") || "<p class='muted'>Todavia no hay compras.</p>"}</div></section>`;
-  drawBars("spendChart", orders.slice(0, 8).reverse().map((o) => ({ label: o.id.slice(-4), value: o.total })));
+  currentChartRef = () => drawBars("spendChart", orders.slice(0, 8).reverse().map((o) => ({ label: o.id.slice(-4), value: o.total })));
+  currentChartRef();
 }
 
 function drawBars(canvasId, data) {

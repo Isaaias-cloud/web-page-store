@@ -176,7 +176,37 @@ const Store = (() => {
     applyTheme();
     updateHeader();
     const toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) toggle.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+    if (toggle) toggle.addEventListener("click", () => {
+      setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+      const menu = document.querySelector("#navMenu");
+      if (menu) {
+        menu.classList.remove("open");
+        document.body.classList.remove("menu-open");
+      }
+    });
+
+    const menuToggle = document.querySelector("#menuToggle");
+    const navMenu = document.querySelector("#navMenu");
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle("open");
+        document.body.classList.toggle("menu-open");
+      });
+      document.addEventListener("click", (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+        }
+      });
+    }
+
     document.querySelectorAll("[data-logout]").forEach((btn) => btn.addEventListener("click", () => {
       localStorage.removeItem(keys.session);
       toast("Sesion cerrada", "info");

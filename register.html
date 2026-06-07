@@ -3,7 +3,24 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Registro | StoreHub</title><link rel="stylesheet" href="css/styles.css"></head>
 <body>
   <div class="loader"></div>
-  <nav class="navbar"><a class="brand" href="index.html">StoreHub</a><a href="products.html">Productos</a><button class="nav-toggle" data-theme-toggle>◐</button><a href="login.html">Ingresar</a></nav>
+  <nav class="navbar">
+    <a class="brand" href="index.html">StoreHub</a>
+    <div class="nav-actions">
+      <button class="nav-toggle" data-theme-toggle title="Cambiar tema">◐</button>
+      <a href="cart.html" data-role="client" class="nav-cart" title="Carrito">
+        🛒 <span class="pill" data-cart-count>0</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <a href="products.html">Productos</a>
+      <a href="dashboard.html" data-auth="in">Dashboard</a>
+      <a href="profile.html" data-auth="in">Perfil</a>
+      <a href="register.html" data-auth="out">Registro</a>
+      <a href="login.html" data-auth="out">Ingresar</a>
+      <button class="link-btn" data-auth="in" data-logout>Salir</button>
+    </div>
+  </nav>
   <main class="auth-page">
     <section class="auth-card wide">
       <p class="eyebrow">Nueva cuenta</p><h1>Registrarse</h1>

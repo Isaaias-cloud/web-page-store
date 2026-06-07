@@ -10,14 +10,23 @@
   <div class="loader"></div>
   <nav class="navbar">
     <a class="brand" href="index.html">StoreHub</a>
-    <div class="nav-search"><input id="homeSearch" placeholder="Buscar en StoreHub" onkeydown="if(event.key==='Enter') location.href='products.html?q='+encodeURIComponent(this.value)"></div>
-    <button class="nav-toggle" data-theme-toggle title="Cambiar tema">◐</button>
-    <a href="products.html">Productos</a>
-    <a href="cart.html" data-role="client">Carrito <span class="pill" data-cart-count>0</span></a>
-    <a href="dashboard.html" data-auth="in">Dashboard</a>
-    <a href="profile.html" data-auth="in">Perfil</a>
-    <a href="login.html" data-auth="out">Ingresar</a>
-    <button class="link-btn" data-auth="in" data-logout>Salir</button>
+    <div class="nav-search">
+      <input id="homeSearch" placeholder="Buscar en StoreHub" onkeydown="if(event.key==='Enter') location.href='products.html?q='+encodeURIComponent(this.value)">
+    </div>
+    <div class="nav-actions">
+      <button class="nav-toggle" data-theme-toggle title="Cambiar tema">◐</button>
+      <a href="cart.html" data-role="client" class="nav-cart" title="Carrito">
+        🛒 <span class="pill" data-cart-count>0</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <a href="products.html">Productos</a>
+      <a href="dashboard.html" data-auth="in">Dashboard</a>
+      <a href="profile.html" data-auth="in">Perfil</a>
+      <a href="login.html" data-auth="out">Ingresar</a>
+      <button class="link-btn" data-auth="in" data-logout>Salir</button>
+    </div>
   </nav>
 
   <main>
